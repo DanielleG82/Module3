@@ -11,3 +11,5 @@ ggplot(sdat,
        aes(x = steak_prep, fill = female)) + 
         geom_bar(position="dodge") +
         ggtitle(paste0("Steak Preparation Preference by Gender for ","Mountain"," Region"))
+ unique(steak_survey$region)
+ 
