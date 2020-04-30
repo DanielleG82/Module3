@@ -33,7 +33,6 @@ data("steak_survey", package="fivethirtyeight")
 # pick a specific region
 sdat <- na.omit(steak_survey) %>%
   filter(region=="Mountain")
-
 ```
 
 ## R Markdown
