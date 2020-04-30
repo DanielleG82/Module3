@@ -1,0 +1,57 @@
+---
+title: "USA steak pref"
+subtitle: "Summary Report For the _**Mountain**_ Region"
+author: "Danielle Gauthier"
+date: "`r format(Sys.Date(), '%A, %B, %d, %Y')`"
+output: html_document
+---
+
+### First chunk of code
+## Document setup
+
+```{r setup, include=FALSE}
+# define knitr options
+# these have all been set to FALSE to produce a cleaner final document, set to TRUE while debugging
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# set any missing NAs in table to blank (makes nicer tables)
+options(knitr.kable.NA='')
+
+# load R packages (list all of them here to make it easier for users to know which packages to install)
+library(fivethirtyeight)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(ggthemes)
+
+# load dataset
+data("steak_survey", package="fivethirtyeight")
+
+# create subset, no missing NAs (create all objects needed in document)
+# pick a specific region
+sdat <- na.omit(steak_survey) %>%
+  filter(region=="Mountain")
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
